@@ -1,23 +1,52 @@
-# shepherd
+# Terraform Openstack flavor module
 
-Introduce your module briefly.
+This module create Openstack flavor using provided infos.
 
-## Usage
-
-Provide the sample code to use your module.
-
-## Scenarios
-
-Provide advanced use cases here.
 
 ## Examples
 
-Paste the links to your sample code in `examples` folder.
+```
+module "flavor" {
+  source = "../../"
+
+  flavor_definitions = [
+    {
+      name = "flavor.test1"
+      ram  = "256"
+      vcpu = "1"
+      disk = "1"
+    },
+    {
+      name = "flavor.test2"
+      ram  = "512"
+      vcpu = "1"
+      disk = "2"
+    }
+  ]
+}
+
+```
 
 ## Inputs
 
-List all input variables of your module.
+```
+variable "enabled" {
+  type        = "string"
+  default     = "1"
+  description = "Allow to create or not when used as a module"
+}
+
+variable "flavor_definitions" {
+  type = list(map(any))
+  description = "List of flavor definitions"
+}
+```
 
 ## Outputs
 
-List all output variables of your module.
+```
+output "flavor_names" {
+  description = ""
+  value       = ["${openstack_compute_flavor_v2.this.*.name}"]
+}
+```
