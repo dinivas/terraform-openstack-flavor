@@ -13,6 +13,7 @@ module "flavor" {
       ram  = "512"
       vcpu = "1"
       disk = "2"
+      is_public = false
     }
   ]
 }
