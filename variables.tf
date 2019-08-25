@@ -24,7 +24,7 @@ variable "flavor_definitions" {
       name = "dinivas.large"
       ram  = "2024"
       vcpu = "1"
-      disk = "10"
+      disk = "20"
     },
     {
       name = "dinivas.xlarge"
