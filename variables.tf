@@ -9,10 +9,16 @@ variable "flavor_definitions" {
   description = "List of flavor definitions"
   default = [
     {
-      name = "dinivas.small"
+      name = "dinivas.xsmall"
       ram  = "512"
       vcpu = "1"
       disk = "5"
+    },
+    {
+      name = "dinivas.small"
+      ram  = "512"
+      vcpu = "1"
+      disk = "10"
     },
     {
       name = "dinivas.medium"
